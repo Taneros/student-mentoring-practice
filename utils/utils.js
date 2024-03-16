@@ -17,6 +17,14 @@ export function getLocalStorageItem ( listName ) {
   return localStorage.getItem( listName )
 }
 
+{/* 
+<li id="0">name <done, delete?</li> 
+<li id="1">name <done, delete?</li> 
+<li id="2">name <done, delete?</li> 
+<li id="3">name <done, delete?</li> 
+<li id="">name <done, delete?</li> 
+
+*/}
 export function getNewTodoItem ( defArray, input ) {
   return {
     id: getNewId( defArray ),

@@ -4,7 +4,9 @@ import {getLocalStorageItem} from './utils/utils.js';
 import TodoList from './components/TodoList/index.js';
 import TodoItem from './components/TodoItem/index.js';
 
-function TodoApp ( container, title = 'Список дел', keyName = '', defArray = [] ) {
+
+//defArray = undefined => []
+function TodoApp ( container, title, keyName, defArray = [] ) {
     const todoAppTitle = AppTitle( title );
     const todoList = TodoList();
     const todoItemForm = TodoItemForm( todoList, keyName, defArray );

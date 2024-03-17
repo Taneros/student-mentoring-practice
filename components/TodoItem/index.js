@@ -2,12 +2,16 @@ import {getNewTodoItem, saveLocalStorageList} from '../../utils/utils.js';
 
 function TodoItem ( inputValue, keyName, defArray ) {
 
+  console.log( `TodoItem/index.js - line: 5 ->> inputValue`, inputValue )
+
   // rename
   let obj = getNewTodoItem( defArray, inputValue ) // {id, name, done} // newInput 
 
   defArray.push( obj )
 
-  saveLocalStorageList( defArray, keyName )
+  if ( keyName ) {
+    saveLocalStorageList( defArray, keyName )
+  }
 
   // rename toDoItem
   const item = document.createElement( 'li' );
@@ -73,7 +77,7 @@ function TodoItem ( inputValue, keyName, defArray ) {
   buttonGroup.append( deleteButton );
   item.append( buttonGroup );
 
-  return {
+  return { 
     item,
     doneButton,
     deleteButton,

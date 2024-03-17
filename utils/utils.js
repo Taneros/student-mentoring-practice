@@ -32,3 +32,16 @@ export function getNewTodoItem ( defArray, inputValue ) {
     done: false
   }
 }
+
+export function restoreTodosFromLocalStorage ( addTodoItem, keyName, defArray ) {
+  const localData = getLocalStorageItem( keyName ) // `[`{}`, `{}`, `{}`]` => [{}, {}, ]
+
+  if ( localData !== null && localData !== '' ) {
+    defArray = JSON.parse( localData ) //`[`{}`, `{}`, `{}`]` => [{}, {}, ]
+
+    for ( const itemList of defArray ) {
+      addTodoItem( itemList.name )
+    }
+  }
+
+}

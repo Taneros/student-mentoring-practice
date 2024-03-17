@@ -1,7 +1,7 @@
 import {getNewTodoItem, saveLocalStorageList} from '../../utils/utils.js';
 import TodoItem from '../TodoItem/index.js';
 
-function TodoItemForm ( todoList, keyName, defArray ) { //создаем и возвращаем форму для создания дела
+function TodoItemForm () { //создаем и возвращаем форму для создания дела
   const form = document.createElement( 'form' ); // {type: "form", classList: ["'input-group'" ,'mb-3']}  for human <form></form>
   const input = document.createElement( 'input' ); //<input></input>
   const buttonWrapper = document.createElement( 'div' );
@@ -19,6 +19,8 @@ function TodoItemForm ( todoList, keyName, defArray ) { //создаем и во
   form.append( input );
   form.append( buttonWrapper );
 
+  let inputValue = '';
+
   form.addEventListener( 'submit', function ( e ) {
     e.preventDefault();
 
@@ -26,14 +28,7 @@ function TodoItemForm ( todoList, keyName, defArray ) { //создаем и во
       return; // early return;
     }
 
-    let newItem = getNewTodoItem( defArray, input ) // {id, name, done}
-
-    let todoItem = TodoItem( newItem, keyName, defArray ); // <li>{sfdsdf}</li>
-
-    defArray.push( newItem )
-    saveLocalStorageList( defArray, keyName )
-
-    todoList.append( todoItem.item )
+    inputValue = input.value
 
     button.disabled = true
     input.value = '';
@@ -64,6 +59,7 @@ function TodoItemForm ( todoList, keyName, defArray ) { //создаем и во
     form,
     input,
     button,
+    inputValue
   };
 
 }

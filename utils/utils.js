@@ -25,10 +25,10 @@ export function getLocalStorageItem ( listName ) {
 <li id="">name <done, delete?</li> 
 
 */}
-export function getNewTodoItem ( defArray, input ) {
+export function getNewTodoItem ( defArray, inputValue ) {
   return {
     id: getNewId( defArray ),
-    name: input.value,
+    name: inputValue,
     done: false
   }
 }
